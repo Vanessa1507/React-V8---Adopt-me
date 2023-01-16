@@ -1,24 +1,25 @@
-import React from "react"
 import { createRoot } from "react-dom"
-
-const Pet = (props) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, props.name),
-    React.createElement("h2", {}, props.animal),
-    React.createElement("h3", {}, props.breed),
-  ])
-}
+import Pet from "./Pet"
+//Components
+//Data
+const infoPets = [
+  { name: "Magola", animal: "Cat", breed: "Mixed" },
+  { name: "Arya", animal: "Cat", breed: "Mixed" },
+  { name: "Simón", animal: "Cat", breed: "Siames" },
+  { name: "Ramón", animal: "Dog", breed: "Mixed" },
+]
 
 const App = () => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, "Adopt Me!"),
-    React.createElement(Pet, { name: "Magola", animal: "cat", breed: "Mixed" }),
-    React.createElement(Pet, { name: "Arya", animal: "cat", breed: "Mixed" }),
-    React.createElement(Pet, { name: "Simón", animal: "cat", breed: "Siames" }),
-    React.createElement(Pet, { name: "Ramón", animal: "dog", breed: "Mixed" }),
-  ])
+  return (
+    <div>
+      <h1>Adopt Me!</h1>
+      {infoPets.map((pet) => (
+        <Pet name={pet.name} animal={pet.animal} breed={pet.breed} />
+      ))}
+    </div>
+  )
 }
 
 const container = document.getElementById("root")
 const root = createRoot(container)
-root.render(React.createElement(App))
+root.render(<App />)
