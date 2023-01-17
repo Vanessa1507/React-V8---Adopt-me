@@ -17,7 +17,7 @@ const queryClient = new QueryClient({
 const App = () => {
   return (
     <BrowserRouter>
-      <QueryClient client={queryClient}>
+      <QueryClientProvider client={queryClient}>
         <header>
           <Link to="/">Adopt Me!</Link>
         </header>
@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/" element={<SearchParams />} />
           <Route path="/details/:id" element={<Details />} />
         </Routes>
-      </QueryClient>
+      </QueryClientProvider>
     </BrowserRouter>
   );
 };
