@@ -20,7 +20,7 @@ const Modal = ({ children }) => {
     };
   }, []);
 
-  return createPortal(<div>{children}</div>);
+  return createPortal(<div>{children}</div>, elRef.current);
 };
 
 export default Modal;
