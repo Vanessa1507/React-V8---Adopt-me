@@ -18,6 +18,7 @@ class Carousel extends Component {
   render() {
     const { active } = this.state;
     const { images } = this.props;
+
     return (
       <div className="carousel">
         <img src={images[active]} alt="animal hero" />

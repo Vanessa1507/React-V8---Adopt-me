@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 //Functions
 import fetchPets from "../functions/fetchPets";
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Details = () => {
   const { id } = useParams();
@@ -41,4 +42,10 @@ const Details = () => {
   );
 };
 
-export default Details;
+const DetailsErrorBoundary = () => (
+  <ErrorBoundary>
+    <Details />
+  </ErrorBoundary>
+);
+
+export default DetailsErrorBoundary;
