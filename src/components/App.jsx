@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 //Components
 import Details from "./Details";
 import SearchParams from "./SearchParams";
+import { useState } from "react";
+import AdoptedPetContext from "../context/AdoptedPetContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,16 +17,20 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  //We are passing the value and the setState ([value, setState]) as useState is an array
+  const adoptPet = useState(null);
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <header>
-          <Link to="/">Adopt Me!</Link>
-        </header>
-        <Routes>
-          <Route path="/" element={<SearchParams />} />
-          <Route path="/details/:id" element={<Details />} />
-        </Routes>
+        <AdoptedPetContext.Provider value={adoptPet}>
+          <header>
+            <Link to="/">Adopt Me!</Link>
+          </header>
+          <Routes>
+            <Route path="/" element={<SearchParams />} />
+            <Route path="/details/:id" element={<Details />} />
+          </Routes>
+        </AdoptedPetContext.Provider>
       </QueryClientProvider>
     </BrowserRouter>
   );
