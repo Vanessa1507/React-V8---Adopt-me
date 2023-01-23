@@ -5,14 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build:client": "vite build --outDir ../dist/client",
-    "build:server": "vite build --outDir ../dist/server --ssr ./components/}ServerApp.jsx",
+    "build:client": "vite build --emptyOutDir --outDir ../dist/client",
+    "build:server": "vite build --emptyOutDir --outDir ../dist/server --ssr ./components/ServerApp.jsx",
     "dev": "vite",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node --experimental-fetch server.js"
   },
   "keywords": [],
   "author": "",

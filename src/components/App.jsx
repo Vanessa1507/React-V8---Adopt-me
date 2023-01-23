@@ -12,6 +12,8 @@ const queryClient = new QueryClient({
     queries: {
       staleTime: Infinity,
       cacheTime: Infinity,
+      //This let us interact with suspense as well
+      suspense: true,
     },
   },
 });

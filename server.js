@@ -11,6 +11,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 //The port where we will listen
 const PORT = process.env.PORT || 3001;
 
+//Write some method that calls that API every five minutes and cahe the resiults to have some data in the since the first load.
+
 //Our project is going to built out an HTML file. We need this to get the proper paths for all things (css, javascript) 
 const html = fs.readFileSync(path.resolve(__dirname, "./dist/client/index.html")).toString();
 
