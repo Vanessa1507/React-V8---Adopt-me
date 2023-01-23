@@ -6,4 +6,4 @@
 
 ## Notes
 
-[Powerpoint slides]()
+[Powerpoint slides](https://utadeoeduco0-my.sharepoint.com/:p:/g/personal/laurav_suarezg_utadeo_edu_co/EeXOdMSDfF1BrqppNxQ4IJUBZnITMZpZoSi82cliYYt4aw?e=ML5Z1w)
