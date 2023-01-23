@@ -6,6 +6,9 @@
   .search-input {
     @apply mb-5 block w-60;
   }
+  .loading-pane {
+    @apply flex w-full items-center justify-center text-center text-9xl;
+  }
 }
 
 @layer utilities {

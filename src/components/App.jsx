@@ -32,7 +32,7 @@ const App = () => {
         <Suspense
           fallback={
             <div className="loading-pane">
-              <h2 className="loader">🐶</h2>
+              <h2 className="animate-spin">🐶</h2>
             </div>
           }
         >
