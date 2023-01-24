@@ -1,6 +1,10 @@
-import { Component } from "react";
+import { Component, MouseEvent } from "react";
 
-class Carousel extends Component {
+interface IProps {
+  images: string[]
+}
+
+class Carousel extends Component<IProps> {
   state = {
     active: 0,
   };
@@ -9,10 +13,18 @@ class Carousel extends Component {
     images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
-  handleIndexClick = (e) => {
-    this.setState({
-      active: +e.target.dataset.index,
-    });
+  //We are define that is a MouseEvent from React that comes from an HTML element
+  handleIndexClick = (e: MouseEvent<HTMLElement>) => {
+    //We will verify if the e.target us an HTMLElement
+    if (!(e.target instanceof HTMLElement)) return;
+
+    //All HTML elmenets have a dataset object but we need to verify that if there is an index property init
+    if (e.target.dataset.index) {
+      this.setState({
+        active: +e.target.dataset.index,
+      });
+    }
+
   };
 
   render() {
