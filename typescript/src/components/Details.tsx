@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 //Functions
-import fetchPets from "../functions/fetchPets";
+import fetchPet from "../functions/fetchPet";
 //Context
 import AdoptedPetContext from "../context/AdoptedPetContext";
 //Components
@@ -25,7 +25,7 @@ const Details = () => {
     throw new Error("Why did you not give me an id???. I wanted an ID. I have no an ID")
   }
 
-  const results = useQuery<IPetAPIResponse>(["details", id], fetchPets);
+  const results = useQuery<IPetAPIResponse>(["details", id], fetchPet);
 
   if (results.isError) {
     return (

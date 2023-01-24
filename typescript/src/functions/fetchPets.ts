@@ -4,8 +4,8 @@ import { QueryFunction } from "@tanstack/react-query";
 import { IPetAPIResponse } from "../types/APIResponsesTypes";
 
 //This is a Query function
-// const fetchPets: QueryFunction<The shape of the response, the param that we are expecting(details= string)>
-const fetchPets: QueryFunction<IPetAPIResponse, ["details", string]> = async ({ queryKey }) => {
+// const fetchPet: QueryFunction<The shape of the response, the param that we are expecting(details= string)>
+const fetchPet: QueryFunction<IPetAPIResponse, ["details", string]> = async ({ queryKey }) => {
   const id = queryKey[1];
 
   const apiRes = await fetch(
@@ -19,4 +19,4 @@ const fetchPets: QueryFunction<IPetAPIResponse, ["details", string]> = async ({ 
   return apiRes.json();
 };
 
-export default fetchPets;
+export default fetchPet;
