@@ -12,9 +12,9 @@ export interface IPet {
 }
 
 export interface IPetAPIResponse {
-  numberOfResults: number;
-  startIndex: number;
   endIndex: number;
   hasNext: boolean;
+  numberOfResults: number;
   pets: IPet[];
+  startIndex: number;
 }
