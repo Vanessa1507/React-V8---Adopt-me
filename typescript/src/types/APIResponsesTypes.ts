@@ -18,3 +18,8 @@ export interface IPetAPIResponse {
   pets: IPet[];
   startIndex: number;
 }
+
+export interface IBreedListAPIResponse {
+  animal: Animal;
+  breeds: string[];
+}
