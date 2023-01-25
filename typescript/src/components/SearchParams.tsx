@@ -8,14 +8,16 @@ import fetchSearch from "../functions/fetchSearch";
 import AdoptedPetContext from "../context/AdoptedPetContext";
 //Components
 import Results from "./Results";
+//Types
+import { Animal } from "../types/APIResponsesTypes";
 
 //Data
-const ANIMALS = ["bird", "dog", "cat", "rabbit", "reptile"];
+const ANIMALS: Animal[] = ["bird", "dog", "cat", "rabbit", "reptile"];
 
 const SearchParams = () => {
-  const [animal, setAnimal] = useState("");
+  const [animal, setAnimal] = useState("" as Animal);
   const [requestParams, setRequestParams] = useState({
-    animal: "",
+    animal: "" as Animal,
     breed: "",
     location: "",
   });
@@ -35,12 +37,12 @@ const SearchParams = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          const formData = new FormData(e.target);
+          const formData = new FormData(e.currentTarget);
 
           const obj = {
-            animal: formData.get("animal") ?? "",
-            breed: formData.get("breed") ?? "",
-            location: formData.get("location") ?? "",
+            animal: (formData.get("animal")?.toString() as Animal) ?? ("" as Animal),
+            breed: formData.get("breed")?.toString() ?? "",
+            location: formData.get("location")?.toString() ?? "",
           };
 
           setRequestParams(obj);
@@ -60,7 +62,10 @@ const SearchParams = () => {
           <select
             id="animal"
             onChange={(e) => {
-              setAnimal(e.target.value);
+              setAnimal(e.currentTarget.value as Animal);
+            }}
+            onBlur={(e) => {
+              setAnimal(e.currentTarget.value as Animal);
             }}
             value={animal}
           >

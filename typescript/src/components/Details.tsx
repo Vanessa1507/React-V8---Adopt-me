@@ -9,7 +9,6 @@ import AdoptedPetContext from "../context/AdoptedPetContext";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import Modal from "./Modal";
-import { IPetAPIResponse } from '../types/APIResponsesTypes';
 
 const Details = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -25,7 +24,8 @@ const Details = () => {
     throw new Error("Why did you not give me an id???. I wanted an ID. I have no an ID")
   }
 
-  const results = useQuery<IPetAPIResponse>(["details", id], fetchPet);
+  //We don't need to define the expected response as the fetchPet define it
+  const results = useQuery(["details", id], fetchPet);
 
   if (results.isError) {
     return (

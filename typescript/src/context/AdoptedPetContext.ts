@@ -1,7 +1,9 @@
 import { createContext } from "react";
-import { IPet } from '../types/APIResponsesTypes';
+import { IPet } from "../types/APIResponsesTypes";
 
-const AdoptedPetContext = createContext<[IPet, (adoptedPet: IPet) => void]>([
+const AdoptedPetContext = createContext<
+  [IPet | null, (adoptedPet: IPet) => void]
+>([
   {
     id: 124,
     animal: "dog",
@@ -10,9 +12,9 @@ const AdoptedPetContext = createContext<[IPet, (adoptedPet: IPet) => void]>([
     description: "The best dog",
     images: [],
     name: "Mateo",
-    state: "WA"
+    state: "WA",
   },
-  () => { }
+  () => {},
 ]);
 
 export default AdoptedPetContext;

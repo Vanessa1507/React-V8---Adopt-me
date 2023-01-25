@@ -1,6 +1,10 @@
+//Types
+import { IPet } from "../types/APIResponsesTypes";
+//Components
 import Pet from "./Pet";
 
-const Results = ({ pets }) => {
+
+const Results = ({ pets }: { pets: IPet[] }) => {
   return (
     <div className="search">
       {!pets.length ? (
