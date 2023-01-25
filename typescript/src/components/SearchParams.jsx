@@ -24,7 +24,7 @@ const SearchParams = () => {
   const [adoptedPet] = useContext(AdoptedPetContext);
 
   //Custom hooks
-  const { breedList } = useBreedList({ animal });
+  const [breedList] = useBreedList({ animal });
 
   //ReactQuery
   const results = useQuery(["search", requestParams], fetchSearch);
