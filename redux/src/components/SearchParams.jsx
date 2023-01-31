@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 //Hooks
 import useBreedList from "../hooks/useBreedList";
 //Functions
 import fetchSearch from "../functions/fetchSearch";
 //Redux
-useSelector;
+import { all } from "../store/searchParamsSlice";
 //Components
 import Results from "./Results";
 
@@ -15,14 +15,11 @@ const ANIMALS = ["bird", "dog", "cat", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [animal, setAnimal] = useState("");
-  const [requestParams, setRequestParams] = useState({
-    animal: "",
-    breed: "",
-    location: "",
-  });
 
   //Global state
+  const dispatch = useDispatch();
   const adoptedPet = useSelector((state) => state.adoptedPet.value);
+  const requestParams = useSelector((state) => state.searchParams.value);
   //Custom hooks
   const { breedList } = useBreedList({ animal });
 
@@ -43,7 +40,7 @@ const SearchParams = () => {
             location: formData.get("location") ?? "",
           };
 
-          setRequestParams(obj);
+          dispatch(all(obj));
         }}
       >
         {adoptedPet && (
