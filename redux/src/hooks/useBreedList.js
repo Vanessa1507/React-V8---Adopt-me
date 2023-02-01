@@ -1,7 +1,6 @@
 //Functions
 import { useGetBreedsQuery } from '../functions/petApiService';
 
-
 const useBreedList = ({ animal }) => {
   const { data: breeds, isLoading } = useGetBreedsQuery(animal, {
     //If we don't have this params we'll skip the request
