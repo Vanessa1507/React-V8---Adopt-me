@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
 //Functions
-import fetchPets from "../functions/fetchPets";
+import { useGetPetQuery } from "../functions/petApiService";
 //Redux
 import { adopt } from "../store/adoptedPetSlice";
 //Components
@@ -19,25 +18,16 @@ const Details = () => {
   //Hooks
   const navigate = useNavigate();
   const { id } = useParams();
-  const results = useQuery(["details", id], fetchPets);
+  // const results = useQuery(["details", id], fetchPets);
+  const { isLoading, data: pet } = useGetPetQuery(id);
 
-  if (results.isError) {
-    return (
-      <div className="">
-        <h2>Oh no!</h2>
-      </div>
-    );
-  }
-
-  if (results.isLoading) {
+  if (isLoading) {
     return (
       <div className="loading-pane">
         <h2 className="loader">🌀</h2>
       </div>
     );
   }
-
-  const pet = results.data.pets[0];
 
   return (
     <div className="details">
